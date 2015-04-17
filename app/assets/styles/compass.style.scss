@@ -1,11 +1,5 @@
 @import "compass/css3";
-$font-size:14px;
-body{
-	font-size: $font-size;
-}
-h1{
-	@include text-shadow(rgba(255, 255, 255, 0.2) 1px 1px 0, rgba(255, 255, 255, 0.2) 2px 2px 0, rgba(255, 255, 255, 0.2) 3px 3px 0);
-}
+
 #visualization{
 	height: 100%;
 }
@@ -31,13 +25,24 @@ h1{
 		background-color : #DEE5EB;
 		border-radius    : 4px;
 		padding          : 10px;
+		&.box{
+			min-width: 170px;
+		}
 		&.going{
 			background-color: #6DB9FB;
   			color: #fff;
+  			&.selected{
+				background-color: #FFBB5B;
+  				border-color: #FFBB5B;
+  			}
 		}
 		&.end{
 			background-color: #AAAAAA;
   			color: #fff;
+  			&.selected{
+  				background-color: #FFBB5B;
+  				border-color: #FFBB5B;
+  			}
 		}
 		a{
 			color: #121212;

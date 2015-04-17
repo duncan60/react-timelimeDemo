@@ -14,7 +14,6 @@ TimelineItem = React.createClass({
 			des       : ''
 		};
 	},
-
 	/*jshint ignore:start */
 	render: function() {
 		return (
