@@ -1,17 +1,19 @@
+
 /*
 *require css
 */
-import 'bootstrap.css';
-import '../assets/styles/style';
-import '../assets/styles/compass.style';
+var bootstrapStyle = require('bootstrap.css');
+var visStyle = require('vis.css');
+var style = require('../assets/styles/style');
+var compassStyle = require('../assets/styles/compass.style');
 
 
 /*
-*require react
+*require module
 */
+var React = require('react');
+var TimelineView = require('../src/TimelineView');
 
-import React from 'react';
-import HelloMessage from './HelloMessage';
 /* jshint ignore:start */
-React.render(<HelloMessage  name='Webpack & ReactJs !'/>, document.getElementById('app'));
+React.render(<TimelineView />, document.getElementById('app'));
 /* jshint ignore:end */

@@ -1,4 +1,15 @@
-
+html,body{
+	height: 100%;
+}
 body {
-    background: rgb(201, 201, 201);
+    background-color: #DEE5EB;
+}
+#visualization{
+	background-color: #fff;
+}
+#app, #app> div{
+	height: 100%;
+}
+#app> div>div{
+	height: 90%;
 }

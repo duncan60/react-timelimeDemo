@@ -21,7 +21,8 @@ module.exports = function(options) {
 		new webpack.ProvidePlugin({
 			$                : 'jquery',
 			jQuery           : 'jquery',
-			'windows.jQuery' : 'jquery'
+			'windows.jQuery' : 'jquery',
+			moment           : 'moment'
 		}),
 		new webpack.NoErrorsPlugin()
 	];
@@ -89,9 +90,11 @@ module.exports = function(options) {
 	};
 	//Vendor style
 	addVendor('css', 'bootstrap.css', bower_dir + '/bootstrap/dist/css/bootstrap.min.css');
+	addVendor('css', 'vis.css', bower_dir + '/vis/dist/vis.min.css');
 	//Vendor plugin
 	addVendor('js', 'jquery', bower_dir + '/jquery/dist/jquery.min.js');
-	addVendor('js', 'bootstrap', bower_dir + '/bootstrap/dist/js/bootstrap.min.js');
+	addVendor('js', 'vis', bower_dir + '/vis/dist/vis.min.js');
+	addVendor('js', 'moment', bower_dir + '/moment/moment.js');
 	return{
 		entry   : entry,
 		output  : {

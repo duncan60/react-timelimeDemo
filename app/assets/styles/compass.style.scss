@@ -1,8 +1,68 @@
 @import "compass/css3";
-$font-size:20px;
+$font-size:14px;
 body{
 	font-size: $font-size;
 }
 h1{
 	@include text-shadow(rgba(255, 255, 255, 0.2) 1px 1px 0, rgba(255, 255, 255, 0.2) 2px 2px 0, rgba(255, 255, 255, 0.2) 3px 3px 0);
+}
+#visualization{
+	height: 100%;
+}
+.vis.timeline {
+	.timeaxis{
+		.major{
+			&.text{
+				padding          : 2px 6px;
+				background-color : #42ADD9;
+				border-radius    : 2px;
+				color            : #fff;
+			}
+			&.text.day1.current-month{
+				background-color : #F472A0;
+			}
+		}
+	}
+	.currenttime{
+		background-color: #F472A0;
+	}
+	.item{
+		border-color     : #8B8B8B;
+		background-color : #DEE5EB;
+		border-radius    : 4px;
+		padding          : 10px;
+		&.going{
+			background-color: #6DB9FB;
+  			color: #fff;
+		}
+		&.end{
+			background-color: #AAAAAA;
+  			color: #fff;
+		}
+		a{
+			color: #121212;
+		}
+
+	}
+	.currenttime{
+		z-index: 0;
+	}
+
+}
+.time-line-item{
+	p{
+		text-align : left;
+	}
+}
+
+.item-date{
+	margin-bottom : 0;
+	font-size     : 12px;
+	a{
+		float: right;
+	}
+}
+.time-line-btn{
+	position: absolute;
+	z-index:99;
 }
