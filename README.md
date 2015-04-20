@@ -1,12 +1,5 @@
-# react-webpack-generator
-generator for react and webpack
-
-## Features
-
-* Compilation with webpack
-* React 0.13.^ and ES6
-* Stylesheets can be CSS, SASS, Compass
-* Generate separate css file and js plugin
+# react-timelimeDemo
+react-timelimeDemo
 
 ##Install npm
 
