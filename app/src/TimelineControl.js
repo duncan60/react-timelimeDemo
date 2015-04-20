@@ -9,6 +9,7 @@ TimelineControl= React.createClass({
 	_timeline      : null,
 	_timelineItems : [],
 	propTypes: {
+		options        : React.PropTypes.object,
 		items          : React.PropTypes.array,
 		onItemSelect   : React.PropTypes.func,
 		onRangechange  : React.PropTypes.func,
@@ -16,9 +17,13 @@ TimelineControl= React.createClass({
 	},
     getDefaultProps: function() {
     	return {
-			items        : [],
-			onItemSelect : function(){},
-			onRangechange : function(){},
+			options        :{
+				minDate:'2014-01-01',
+				maxDate:'2015-01-01',
+			},
+			items          : [],
+			onItemSelect   : function(){},
+			onRangechange  : function(){},
 			onRangechanged : function(){}
 	    };
     },
@@ -43,6 +48,8 @@ TimelineControl= React.createClass({
 	_createTimeline: function() {
 		var that = this,
 			options = {
+				min             : this.props.options.minDate,
+				max             : this.props.options.maxDate,
 				editable        : false,
 				showCurrentTime : true,
 				start           : moment().day(-90),
@@ -60,9 +67,6 @@ TimelineControl= React.createClass({
 					    			id={item.id} />
 				    		);
 				    /*jshint ignore:end */
-				},
-				onMove:function(){
-					console.log('onMove');
 				}
 			};
 		this._timelineItems = new vis.DataSet(this.props.items);

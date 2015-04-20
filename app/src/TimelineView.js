@@ -5,6 +5,10 @@ var React           = require('react'),
 Timelineview = React.createClass({
 	getInitialState: function() {
 		return  {
+			timelineOptions:{
+				minDate:'2014-01-01',
+				maxDate:'2016-01-01',
+			},
 			items:[
 				{id:1, description:'descriptionA', eventTime:'04-10~04-20', start:'2015-04-10',className:'going'},
 				{id:2, description:'descriptionB', eventTime:'03-01~03-20', start:'2015-03-01',className:'going'},
@@ -32,6 +36,7 @@ Timelineview = React.createClass({
             /*jshint ignore:start */
 			<div>
 				<TimelineControl
+					options={this.state.timelineOptions}
 					items={this.state.items}
 					onItemSelect={this._itemSelect}
 					onRangechange={this._rangechange}
