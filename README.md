@@ -1,5 +1,5 @@
 # react-timelimeDemo
-react-timelimeDemo
+dependencies http://visjs.org/ 
 
 ##Install npm
 
