@@ -25,10 +25,10 @@ Timelineview = React.createClass({
 		console.log('select ID:',id);
 	},
 	_rangechange: function(properties) {
-		console.log('_rangechange',properties);
+		//console.log('_rangechange',properties);
 	},
 	_rangechanged: function(properties) {
-		console.log('_rangechanged',properties);
+		//console.log('_rangechanged',properties);
 	},
 
 	render: function() {

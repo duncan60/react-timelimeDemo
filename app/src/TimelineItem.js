@@ -22,7 +22,7 @@ TimelineItem = React.createClass({
 					<p className="item-title">{this.props.des}</p>
 					<p className="item-date">
 						{this.props.eventTime}
-						<a href={'#/pointer/'+ this.props.id}>link</a>
+						{/*<a href={'#/pointer/'+ this.props.id}>link</a>*/}
 					</p>
 				</div>
 			</div>

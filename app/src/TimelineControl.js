@@ -39,6 +39,16 @@ TimelineControl= React.createClass({
     _moveCurrentDay: function() {
     	this._timeline.moveTo(moment());
     },
+    _moveLeft: function(){
+    	var range = this._timeline.getWindow(),
+    		moveRange =  moment(range.start).add(-1, 'months');
+    	this._timeline.moveTo(moveRange);
+    },
+    _moveRight: function(){
+    	var range = this._timeline.getWindow(),
+    		moveRange =  moment(range.end).add(1, 'months');
+    	this._timeline.moveTo(moveRange);
+    },
     _updateItems: function() {
     	var moveToTime = moment(this.props.items[this.props.items.length-1].start).day(10);
     	this._timelineItems.clear();
@@ -46,13 +56,13 @@ TimelineControl= React.createClass({
     	this._timeline.moveTo(moveToTime);
     },
 	_createTimeline: function() {
-		var that = this,
-			options = {
+		var options = {
 				min             : this.props.options.minDate,
 				max             : this.props.options.maxDate,
 				editable        : false,
+				moveable        : true,
 				showCurrentTime : true,
-				start           : moment().day(-90),
+				start           : moment().day(-55),
 				end             : moment().day(10),
 				autoResize      : true,
 				height          : '100%',
@@ -95,6 +105,10 @@ TimelineControl= React.createClass({
 		return (
 			<div>
 				<a className="time-line-btn move-last btn btn-primary" onClick={this._moveCurrentDay}>Current Day</a>
+				<div>
+					<a onClick={this._moveLeft}>左移</a>
+					<a onClick={this._moveRight}>右移</a>
+				</div>
 				<div ref='visualization' id='visualization'></div>
 			</div>
 		);
