@@ -8,7 +8,7 @@ import moment from 'moment';
 class TimelineControl extends Component {
 	constructor(props) {
 		super();
-		this._bind('_rangechange', '_rangechanged','_moveCurrentDay','_moveLeft','_moveRight');
+		this._bind('_rangechange', '_rangechanged','_itemSelect','_moveCurrentDay','_moveLeft','_moveRight');
 		this._timeline = null;
 		this._timelineItems = [];
 	}
@@ -116,4 +116,5 @@ TimelineControl.defaultProps = {
 	onRangechange  : function(){},
 	onRangechanged : function(){}
 }
+
 export default TimelineControl;

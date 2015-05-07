@@ -1,4 +1,3 @@
-
 import React from 'react/addons';
 
 class Component extends React.Component {

@@ -22,7 +22,6 @@ class TimelineView extends Component {
 			]
 		}
 	}
-
 	_timeSelect(id) {
 		console.log('select ID:',id);
 	}

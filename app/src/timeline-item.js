@@ -2,12 +2,6 @@ import React from 'react';
 import Component from '../src/component';
 
 class TimelineItem extends Component {
-	constructor(props) {
-
-	}
-	shouldComponentUpdate() {
-    	return Addons.PureRenderMixin.shouldComponentUpdate.apply(this, arguments);
-  	}
 	render() {
 		/*jshint ignore:start */
 		return (
@@ -24,6 +18,7 @@ class TimelineItem extends Component {
 		/*jshint ignore:end */
 	}
 }
+
 TimelineItem.propTypes = {
 	eventTime : React.PropTypes.string,
 	des       : React.PropTypes.string,
