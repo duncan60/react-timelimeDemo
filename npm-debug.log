@@ -1,0 +1,30 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose run-script [ 'predev', 'dev', 'postdev' ]
+6 info predev webpack-react@0.0.1
+7 info dev webpack-react@0.0.1
+8 verbose unsafe-perm in lifecycle true
+9 info webpack-react@0.0.1 Failed to exec dev script
+10 error webpack-react@0.0.1 dev: `webpack-dev-server --config webpack-dev-server.config.js  --hot --content-base app`
+10 error Exit status -1073741819
+11 error Failed at the webpack-react@0.0.1 dev script.
+11 error This is most likely a problem with the webpack-react package,
+11 error not with npm itself.
+11 error Tell the author that this fails on your system:
+11 error     webpack-dev-server --config webpack-dev-server.config.js  --hot --content-base app
+11 error You can get their info via:
+11 error     npm owner ls webpack-react
+11 error There is likely additional logging output above.
+12 error System Windows_NT 6.1.7601
+13 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+14 error cwd C:\AppServ\www\timelineDemo
+15 error node -v v0.10.31
+16 error npm -v 1.4.23
+17 error code ELIFECYCLE
+18 verbose exit [ 1, true ]

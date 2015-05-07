@@ -1,66 +1,47 @@
+import React from 'react';
+import vis    from 'vis';
+import moment from 'moment';
+import TimelineItem from'../src/timeline-item';
+import Component from '../src/component';
 
-var React        = require('react'),
-	vis          = require('vis'),
-	moment       = require('moment'),
-	TimelineItem = require('../src/TimelineItem'),
-	TimelineControl;
-
-TimelineControl= React.createClass({
-	_timeline      : null,
-	_timelineItems : [],
-	propTypes: {
-		options        : React.PropTypes.object,
-		items          : React.PropTypes.array,
-		onItemSelect   : React.PropTypes.func,
-		onRangechange  : React.PropTypes.func,
-		onRangechanged : React.PropTypes.func
-	},
-    getDefaultProps: function() {
-    	return {
-			options        :{
-				minDate:'2014-01-01',
-				maxDate:'2015-01-01',
-			},
-			items          : [],
-			onItemSelect   : function(){},
-			onRangechange  : function(){},
-			onRangechanged : function(){}
-	    };
-    },
-	componentDidMount: function() {
+class TimelineControl extends Component {
+	constructor(props) {
+		super();
+		this._bind('_rangechange', '_rangechanged','_moveCurrentDay','_moveLeft','_moveRight');
+		this._timeline = null;
+		this._timelineItems = [];
+	}
+	componentDidMount() {
 		this._createTimeline();
-	},
-	shouldComponentUpdate: function(nextProps,nextState) {
-        return this.props !== nextProps;
-    },
-    componentDidUpdate: function() {
+	}
+	componentDidUpdate() {
     	this._updateItems();
-    },
-    _moveCurrentDay: function() {
+    }
+    _moveCurrentDay() {
     	this._timeline.moveTo(moment());
-    },
-    _moveLeft: function(){
-    	var range = this._timeline.getWindow(),
-    		moveRange =  moment(range.start).add(-1, 'months');
+    }
+    _moveLeft() {
+    	let range = this._timeline.getWindow();
+    	let	moveRange =  moment(range.start).add(-1, 'months');
     	this._timeline.moveTo(moveRange);
-    },
-    _moveRight: function(){
-    	var range = this._timeline.getWindow(),
-    		moveRange =  moment(range.end).add(1, 'months');
+    }
+    _moveRight() {
+    	let range = this._timeline.getWindow();
+    	let	moveRange =  moment(range.end).add(1, 'months');
     	this._timeline.moveTo(moveRange);
-    },
-    _updateItems: function() {
-    	var moveToTime = moment(this.props.items[this.props.items.length-1].start).day(10);
+    }
+    _updateItems() {
+    	let moveToTime = moment(this.props.items[this.props.items.length-1].start).day(10);
     	this._timelineItems.clear();
     	this._timelineItems.add(this.props.items);
     	this._timeline.moveTo(moveToTime);
-    },
-	_createTimeline: function() {
-		var options = {
+    }
+	_createTimeline() {
+		let options = {
 				min             : this.props.options.minDate,
 				max             : this.props.options.maxDate,
 				editable        : false,
-				moveable        : true,
+				moveable        : false,
 				showCurrentTime : true,
 				start           : moment().day(-55),
 				end             : moment().day(10),
@@ -88,19 +69,19 @@ TimelineControl= React.createClass({
 		this._timeline.on('select',this._itemSelect);
 		this._timeline.on('rangechange',this._rangechange);
 		this._timeline.on('rangechanged',this._rangechanged);
-	},
-	_itemSelect: function(properties) {
+	}
+	_itemSelect(properties) {
 		if (properties.items.length) {
 			this.props.onItemSelect(properties.items[0]);
 		}
-	},
-	_rangechange: function(properties) {
+	}
+	_rangechange(properties) {
 		this.props.onRangechange(properties);
-	},
-	_rangechanged: function(properties) {
+	}
+	_rangechanged(properties) {
 		this.props.onRangechanged(properties);
-	},
-	render: function() {
+	}
+	render() {
 		/*jshint ignore:start */
 		return (
 			<div>
@@ -112,9 +93,26 @@ TimelineControl= React.createClass({
 				<div ref='visualization' id='visualization'></div>
 			</div>
 		);
-		 /*jshint ignore:end */
+		/*jshint ignore:end */
 	}
+}
 
-});
+TimelineControl.propsType = {
+	options        : React.PropTypes.object,
+	items          : React.PropTypes.array,
+	onItemSelect   : React.PropTypes.func,
+	onRangechange  : React.PropTypes.func,
+	onRangechanged : React.PropTypes.func
+}
 
-module.exports = TimelineControl;
+TimelineControl.defaultProps = {
+	options        :{
+		minDate:'',
+		maxDate:'',
+	},
+	items          : [],
+	onItemSelect   : function(){},
+	onRangechange  : function(){},
+	onRangechanged : function(){}
+}
+export default TimelineControl;

@@ -1,10 +1,11 @@
-var React           = require('react'),
-	TimelineControl = require('../src/TimelineControl'),
-	Timelineview;
+import React from 'react';
+import Component from '../src/component';
+import TimelineControl from'../src/timeline-control';
 
-Timelineview = React.createClass({
-	getInitialState: function() {
-		return  {
+class TimelineView extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			timelineOptions:{
 				minDate:'2014-01-01',
 				maxDate:'2016-01-01',
@@ -19,19 +20,18 @@ Timelineview = React.createClass({
 				{id:7, description:'descriptionG', eventTime:'12-10~12-25', start:'2014-12-10',className:'end'},
 				{id:8, description:'descriptionH', eventTime:'11-05~12-05', start:'2014-11-05',className:'end'}
 			]
-		};
-	},
-	_itemSelect: function(id) {
+		}
+	}
+	_timeSelect(id) {
 		console.log('select ID:',id);
-	},
-	_rangechange: function(properties) {
-		//console.log('_rangechange',properties);
-	},
-	_rangechanged: function(properties) {
-		//console.log('_rangechanged',properties);
-	},
+	}
+	_rangeChange(properties) {
 
-	render: function() {
+	}
+	_rangeChanged(_rangechanged) {
+
+	}
+	render() {
 		return (
             /*jshint ignore:start */
 			<div>
@@ -39,13 +39,13 @@ Timelineview = React.createClass({
 					options={this.state.timelineOptions}
 					items={this.state.items}
 					onItemSelect={this._itemSelect}
-					onRangechange={this._rangechange}
-					onRangechanged={this._rangechanged} />
+					onRangechange={this._rangeChange}
+					onRangechanged={this._rangeChanged} />
 			</div>
             /*jshint ignore:end */
 		);
 	}
+};
+export default TimelineView;
 
-});
 
-module.exports = Timelineview;
