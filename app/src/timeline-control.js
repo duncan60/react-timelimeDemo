@@ -1,8 +1,9 @@
 import React from 'react';
-import vis    from 'vis';
-import moment from 'moment';
 import TimelineItem from'../src/timeline-item';
 import Component from '../src/component';
+//vender
+import vis    from 'vis';
+import moment from 'moment';
 
 class TimelineControl extends Component {
 	constructor(props) {
