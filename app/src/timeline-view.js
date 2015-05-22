@@ -20,7 +20,7 @@ class TimelineView extends Component {
 				{id:7, description:'descriptionG', eventTime:'12-10~12-25', start:'2014-12-10',state:'end'},
 				{id:8, description:'descriptionH', eventTime:'11-05~12-05', start:'2014-11-05',state:'end'}
 			]
-		}
+		};
 	}
 	_timeSelect(id) {
 		console.log('select ID:',id);
@@ -45,7 +45,7 @@ class TimelineView extends Component {
             /*jshint ignore:end */
 		);
 	}
-};
+}
 export default TimelineView;
 
 
