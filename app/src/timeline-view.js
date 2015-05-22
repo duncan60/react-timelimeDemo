@@ -7,8 +7,8 @@ class TimelineView extends Component {
 		super(props);
 		this.state = {
 			timelineOptions:{
-				minDate:'2014-01-01',
-				maxDate:'2016-01-01',
+				minDate:'2014-05-22',
+				maxDate:'2015-05-22',
 			},
 			items:[
 				{id:1, description:'descriptionA', eventTime:'04-10~04-20', start:'2015-04-10',state:'going'},
