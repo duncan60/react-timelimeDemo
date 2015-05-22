@@ -4,9 +4,10 @@ import Component from '../src/component';
 class TimelineItem extends Component {
 	render() {
 		/*jshint ignore:start */
+		let classes = this.props.state + ' time-line-item';
 		return (
 			<div>
-				<div className="time-line-item">
+				<div className={classes}>
 					<p className="item-title">{this.props.des}</p>
 					<p className="item-date">
 						{this.props.eventTime}
@@ -22,12 +23,14 @@ class TimelineItem extends Component {
 TimelineItem.propTypes = {
 	eventTime : React.PropTypes.string,
 	des       : React.PropTypes.string,
+	state     : React.PropTypes.string,
 	id        : React.PropTypes.number
 };
 
 TimelineItem.defaultProps = {
 	eventTime : '',
 	des       : '',
+	state     : '',
 	id        : 0
 };
 

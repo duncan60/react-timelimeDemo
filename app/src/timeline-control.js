@@ -56,7 +56,8 @@ class TimelineControl extends Component {
 					    		<TimelineItem
 					    			eventTime={item.eventTime}
 					    			des={item.description}
-					    			id={item.id} />
+					    			id={item.id}
+					    			state={item.state} />
 				    		);
 				    /*jshint ignore:end */
 				}
