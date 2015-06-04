@@ -99,7 +99,7 @@ class TimelineControl extends Component {
 	}
 }
 
-TimelineControl.propsType = {
+TimelineControl.propTypes = {
 	options        : React.PropTypes.object,
 	items          : React.PropTypes.array,
 	onItemSelect   : React.PropTypes.func,
